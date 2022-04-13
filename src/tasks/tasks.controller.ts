@@ -23,7 +23,7 @@ import { Logger } from '@nestjs/common';
 @Controller('tasks')
 @UseGuards(AuthGuard())
 export class TasksController {
-  private logger = new Logger('TasksController', {timestamp: true});//the context makes it easy to understand where our log is comming from, in this case from the task controller
+  private logger = new Logger('TasksController', {timestamp: true});
   
   constructor(private tasksServices: TasksService) {}
 
@@ -45,7 +45,7 @@ export class TasksController {
     return this.tasksServices.createTask(createTaskDTO, user);
   }
 
-  @Get('/:id')//need clarity on how validation works without a clear link to the DTO
+  @Get('/:id')
   async getTaskById(
     @Param('id', ParseUUIDPipe) id: string, 
     @GetUser() user: User

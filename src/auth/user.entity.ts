@@ -12,6 +12,6 @@ export class User {
   @Column()
   password: string;
 
-  @OneToMany((_type) => Task, (task) => task.user, { eager: true }) //type of property would be a task entity, how to access the user from the task entity, eager here means anytime we fetch the user it would automatically fetch the tasks for that user aswell 
+  @OneToMany((_type) => Task, (task) => task.user, { eager: true }) 
   tasks: Task[];
 }

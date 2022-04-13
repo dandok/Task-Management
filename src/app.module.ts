@@ -9,14 +9,13 @@ import { configValidationSchema } from './config.schema'
 @Module({
   imports: [
     ConfigModule.forRoot({
-      // envFilePath: [`.env.stage.${process.env.STAGE}`], //a distinct file per environment/stage
       validationSchema: configValidationSchema,
     }),
     TasksModule,
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
-      useFactory: (configService: ConfigService) => {//function called by nestjs whenever we want to initialize this module asynchronously
+      useFactory: (configService: ConfigService) => {
           const isProduction = configService.get('STAGE') === 'prod';
         return {
           ssl: isProduction,

@@ -34,7 +34,6 @@ export class TasksRepository extends Repository<Task> {
           user.username
         }". filters ${JSON.stringify(fillterDTO)}`,
         error.message
-        // error.stack,
       );
       throw new InternalServerErrorException();
     }
