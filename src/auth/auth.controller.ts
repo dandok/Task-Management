@@ -9,13 +9,13 @@ export class AuthController {
 
   constructor(private authService: AuthService) {}
 
-  @Post('/signup')
+  @Post('signup')
   async signUp(@Body() authCredentialsDTO: AuthCredentialsDTO): Promise<void> {
     this.logger.verbose(`User is creating an account with username: ${authCredentialsDTO.username}`)
     return this.authService.signUp(authCredentialsDTO)
   }
 
-  @Post('/signin')
+  @Post('signin')
   async signIn(@Body() authCredentialsDTO: AuthCredentialsDTO): Promise<{ accessToken: string }> {
     this.logger.verbose(`User with username: ${authCredentialsDTO.username} is signed in`)
     return this.authService.signIn(authCredentialsDTO)
