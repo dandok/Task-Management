@@ -45,7 +45,7 @@ export class TasksController {
     return this.tasksServices.createTask(createTaskDTO, user);
   }
 
-  @Get('/:id')
+  @Get(':id')
   async getTaskById(
     @Param('id', ParseUUIDPipe) id: string, 
     @GetUser() user: User
@@ -53,7 +53,7 @@ export class TasksController {
     return await this.tasksServices.getTaskById(id, user)
   }
 
-  @Delete('/:id')
+  @Delete(':id')
   deleteTask(
     @Param('id') id: string,
     @GetUser() user: User
@@ -61,7 +61,7 @@ export class TasksController {
     return this.tasksServices.deleteTask(id, user)
   }
 
-  @Patch('/:id/status')
+  @Patch(':id/status')
   updateStatus(
     @Param('id') id: string, 
     @Body() updateTaskStatusDTO: UpdateTaskStatusDTO,
