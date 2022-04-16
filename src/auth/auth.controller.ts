@@ -1,6 +1,6 @@
 import { Body, Controller, Logger, Post, Req, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { AuthService } from './auth.service';
+import { AuthService } from './service/auth.service';
 import { AuthCredentialsDTO } from './dto/auth-credentials.dto';
 
 @Controller('auth')
@@ -17,6 +17,7 @@ export class AuthController {
 
   @Post('/signin')
   async signIn(@Body() authCredentialsDTO: AuthCredentialsDTO): Promise<{ accessToken: string }> {
+    this.logger.verbose(`User with username: ${authCredentialsDTO.username} is signed in`)
     return this.authService.signIn(authCredentialsDTO)
   }
 }

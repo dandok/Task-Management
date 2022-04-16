@@ -10,7 +10,7 @@ import {
   Query,
   UseGuards,
 } from '@nestjs/common';
-import { TasksService } from './tasks.service';
+import { TasksService } from './service/tasks.service';
 import { CreateTaskDTO } from './dto/create-task.dto';
 import { GetTasksFilterDTO } from './dto/get-task.filter.dto';
 import { UpdateTaskStatusDTO } from './dto/update-task-status.dto';
